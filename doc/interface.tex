@@ -1,0 +1,199 @@
+\documentclass[10pt]{article}
+%\usepackage{amsmath}   
+\usepackage[margin=2cm]{geometry}        % See geometry.pdf to learn the layout options. There are lots.
+\geometry{letterpaper}          % ... or a4paper or a5paper or ... 
+%\usepackage{textcomp}
+\usepackage{graphicx}
+%\usepackage{amssymb}
+%\usepackage{epstopdf}
+%\usepackage{verbatim}
+%\usepackage{latexsym}
+\usepackage{amssymb}
+\usepackage{wrapfig}
+\usepackage{fancyheadings}
+\pagestyle{fancy}
+
+\title{Interface}
+\author{Trevor ``RM\_Trev'' Daniels}
+\date{2009-06-23}
+
+\begin{document}
+\maketitle
+\lhead{Interface}
+\chead{UploadedFile}
+\rhead{SIIS}
+
+\section{UploadedFile}
+\noindent Author: Trevor ``RM\_Trev'' Daniels
+
+\noindent Description: This class helps simplify the process of doing error checking on file uploaded through HTTP POST.
+
+%---------------------------------------------------------------------------
+
+\subsection{\_\_construct(\$name)}
+
+\noindent Arguments:
+\begin{itemize}
+\item \verb!string $name:! The name of the file supplied by the HTML form.
+\end{itemize}
+
+\noindent Returns:
+\begin{itemize}
+\item \verb!none!
+\end{itemize}
+
+\noindent Description:
+\begin{itemize}
+\item This constructs the UploadedFile object.  The \$name that is passed should be identical to the file input field on the HTML form used to send the file.
+\item Throws an UploadException if an error was encountered while checking the file.
+\end{itemize}
+
+%---------------------------------------------------------------------------
+
+\subsection{version()}
+
+\noindent Arguments:
+\begin{itemize}
+\item \verb!none!
+\end{itemize}
+
+\noindent Returns:
+\begin{itemize}
+\item \verb!string!
+\end{itemize}
+
+\noindent Description:
+\begin{itemize}
+\item This function returns the version code of this class.
+\end{itemize}
+
+%---------------------------------------------------------------------------
+
+\subsection{isUploaded()}
+
+\noindent Arguments:
+\begin{itemize}
+\item \verb!none!
+\end{itemize}
+
+\noindent Returns:
+\begin{itemize}
+\item \verb!bool!
+\end{itemize}
+
+\noindent Description:
+\begin{itemize}
+\item This function checks if the file was uploaded successfully (or was not specified).
+\item Returns \texttt{bool(true)} if the file was uploaded, or \texttt{bool(false)} if it was not uploaded.
+\end{itemize}
+
+%---------------------------------------------------------------------------
+
+\subsection{getName()}
+
+\noindent Arguments:
+\begin{itemize}
+\item \verb!none!
+\end{itemize}
+
+\noindent Returns:
+\begin{itemize}
+\item \verb!string!
+\item \verb!null!
+\end{itemize}
+
+\noindent Description:
+\begin{itemize}
+\item This function returns the name of the uploaded file.  Note that this refers to the ``file name'', not the name of the file input field associated with the class instance.  If the file was not uploaded, this function will return null.
+\end{itemize}
+
+%---------------------------------------------------------------------------
+
+\subsection{getSize()}
+
+\noindent Arguments:
+\begin{itemize}
+\item \verb!none!
+\end{itemize}
+
+\noindent Returns:
+\begin{itemize}
+\item \verb!integer!
+\item \verb!null!
+\end{itemize}
+
+\noindent Description:
+\begin{itemize}
+\item This function returns the size of the uploaded file in bytes.  If a file was not uploaded, this function will return null.
+\end{itemize}
+
+%---------------------------------------------------------------------------
+
+\subsection{getFileData()}
+
+\noindent Arguments:
+\begin{itemize}
+\item \verb!none!
+\end{itemize}
+
+\noindent Returns:
+\begin{itemize}
+\item \verb!string!
+\item \verb!null!
+\end{itemize}
+
+\noindent Description:
+\begin{itemize}
+\item This function returns the contents of the file as a string.  If a file was not uploaded, this function will return null.
+\end{itemize}
+
+%---------------------------------------------------------------------------
+%---------------------------------------------------------------------------
+%---------------------------------------------------------------------------
+
+\pagebreak
+\section{UploadException (extends Exception)}
+\noindent Author: Trevor ``RM\_Trev'' Daniels
+
+\noindent Description: This class is an extention of the Exception class, which is thrown when an error was encountered by UploadedFile.
+
+%---------------------------------------------------------------------------
+
+\subsection{\_\_construct(\$errcode, \$msg)}
+
+\noindent Arguments:
+\begin{itemize}
+\item \verb!int    $errcode:! The error code of the upload.
+\item \verb!string $msg:    ! Additional information about the error.
+\end{itemize}
+
+\noindent Returns:
+\begin{itemize}
+\item \verb!none!
+\end{itemize}
+
+\noindent Description:
+\begin{itemize}
+\item This function constructs the UploadException object.
+\end{itemize}
+
+%---------------------------------------------------------------------------
+
+\subsection{getErrorCode()}
+
+\noindent Arguments:
+\begin{itemize}
+\item \verb!none!
+\end{itemize}
+
+\noindent Returns:
+\begin{itemize}
+\item \verb!int!
+\end{itemize}
+
+\noindent Description:
+\begin{itemize}
+\item This function returns the error code of the upload.
+\end{itemize}
+
+\end{document}

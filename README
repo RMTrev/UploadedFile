@@ -1,0 +1,38 @@
+Utility for Managing Uploaded Files
+Trevor "RM_Trev" Daniels
+
+This script simplifies the work involved with managing files transferred via
+HTTP (usually through web forms) in PHP.  It takes advantage of OO and
+Exception handling to create more robust applications.
+
+Example usage:
+
+HTML Form:
+<form method="POST" action="example.php">
+<input type="file" name="foo">
+<input type="submit" name="submit" value="Submit">
+</form>
+
+example.php:
+<?php
+try
+  {
+    $file = new UploadedFile("foo");
+    if($file->isUploaded())
+      {
+        // get information about the file
+        $data = $file->getFileData();
+        $type = $file->getType();
+        $size = $file->getSize();
+        $filename = $file->getName();
+      }
+    else
+      {
+        echo "No file uploaded.";
+      }
+  }
+catch(UploadException $e)
+  {
+    echo $e->getMessage();
+  }
+?>
